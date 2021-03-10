@@ -1,33 +1,24 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render,screen } from '@testing-library/react';
+import withMarkup from './withMarkup';
+ 
 import App from './App';
-
-describe('My Test Suite', () => {
-  it('My Test Case', () => {
-    expect(true).toEqual(true);
+import Home from './components/Home.jsx'
+ 
+describe('App', () => {
+  test('renders App component', () => {
+    render(<App />);
+	screen.debug();
   });
 });
 
-
-describe('<App/>',() => {
-	it('</App>', () => {
-    expect(true).toEqual(true);
+describe('Home', () => {
+  test('renders Home component', () => {
+    render(<Home />);
+	
+	 expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
+	 expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
+	//screen.debug();
   });
 });
 
-describe('<App/>',() => {
-	it('contains Header,Content,Footer,Home', () => {
-    expect(true).toEqual(true);
-  });
-});
-
-describe ('<Content/>', () => {
-  it ('contains Table', () => {
-    expect(true).toEqual(true);
-  })
-})
-
-describe ('<Content/>', () => {
-  it ('contains employees-api.json', () => {
-    expect(true).toEqual(true);
-  })
-})
