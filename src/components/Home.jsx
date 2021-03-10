@@ -1,9 +1,6 @@
 import '../App.css';
 import React from 'react';
 import './styles/myStyle.css';
-import KeyboardEventHandler from 'react-keyboard-event-handler';
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
   
 
@@ -19,7 +16,7 @@ const Home=(props)=> {
   }
 	 
   }
-	return (<Router><Switch>
+	return (
 		<form>
 			<br></br>
 			<br></br>
@@ -32,8 +29,8 @@ const Home=(props)=> {
 			  
 			</div>
 			<div class="form-row col-md-3">
-			  <label for="inputEmail4">Email</label>
-			  <input type="email" class="form-control" id="inputEmail4" placeholder="Email"/>
+			 
+			  Email<input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
 			</div>
 			
 			<div class="form-row col-md-3">
@@ -47,8 +44,8 @@ const Home=(props)=> {
 			  
 			</div>
 			<div class="form-row col-md-3">
-			  <label for="inputPassword4">Password</label>
-			  <input type="password" class="form-control" id="inputPassword4" placeholder="Password"/>
+			  
+			  Password<input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
 			  <br></br>
 			  <br></br>
 			  
@@ -58,7 +55,7 @@ const Home=(props)=> {
 		 </div>
 			
 		<br></br>
-</form></Switch></Router>
+</form>
 	)
 }
 
