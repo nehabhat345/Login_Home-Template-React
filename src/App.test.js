@@ -1,33 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
 
-describe('My Test Suite', () => {
-  it('My Test Case', () => {
-    expect(true).toEqual(true);
-  });
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
 });
-
-
-describe('<App/>',() => {
-	it('</App>', () => {
-    expect(true).toEqual(true);
-  });
-});
-
-describe('<App/>',() => {
-	it('contains Header,Content,Footer,Home', () => {
-    expect(true).toEqual(true);
-  });
-});
-
-describe ('<Content/>', () => {
-  it ('contains Table', () => {
-    expect(true).toEqual(true);
-  })
-})
-
-describe ('<Content/>', () => {
-  it ('contains employees-api.json', () => {
-    expect(true).toEqual(true);
-  })
-})
