@@ -1,14 +1,22 @@
 import '../App.css';
 import React from 'react';
 import './styles/myStyle.css';
+import addNotification from 'react-push-notification';
 
-  
-
-const Home=(props)=> {
+const Home=()=> {
 	
+
 	function submitForm (event) {
-	 
+	 //Add push notification
+	 //npm install react-push notification
 	 window.location.href = "http://localhost:3000/content";
+	         addNotification({
+            title: 'Warning',
+            subtitle: 'This is a subtitle',
+            message: 'Hey Neha!!I am a push notification!',
+            theme: 'darkblue',
+            native: true // when using native, your OS will handle theming.
+        });
 	 console.log("event ::"+event.key);
 	  if(event === 'Enter'){
 		  console.log("Enter Key Pressed");
@@ -50,6 +58,7 @@ const Home=(props)=> {
 			  <br></br>
 			  
 			   <input type="button" className="btn btn-primary btn-block" value="Submit" onClick={submitForm} onKeyPress={submitForm}/>
+			   
 			</div>
 			
 		 </div>
