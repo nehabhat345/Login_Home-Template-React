@@ -1,33 +1,39 @@
-import React from 'react';
-import { Table } from "semantic-ui-react";
-import contacts from '../employees-api.json';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios' ;
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Content=()=>{
 	
+	const [list,setList]=useState([]);//Param passing doubt here
+	useEffect(()=>{
+		axios.get('https://jsonplaceholder.typicode.com/todos')
+		.then((todo)=>setList(todo.data));
+	},[])
+	
 	return (
-	<Table singleLine>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Emp Id</Table.HeaderCell>
-            <Table.HeaderCell>Employee Name</Table.HeaderCell>
-            <Table.HeaderCell>Employee Age</Table.HeaderCell>
+	<table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>userId</th>
            
-          </Table.Row>
-        </Table.Header>
+          </tr>
+        </thead>
 
-        <Table.Body>
-          {contacts.data.map(el => {
+        <tbody>
+          {list.map(el => {
             return (
-              <Table.Row key={el.id}>
-                <Table.Cell>{el.id}</Table.Cell>
-                <Table.Cell>
-                  {el.employee_name} </Table.Cell>
-                <Table.Cell>{el.employee_age}</Table.Cell>
-              </Table.Row>
+              <tr key={el.id}>
+                <td>{el.id}</td>
+                <td>
+                  {el.title} </td>
+                <td>{el.userId}</td>
+              </tr>
             );
           })}
-        </Table.Body>
-      </Table>
+        </tbody>
+      </table>
 	)
 }
 
